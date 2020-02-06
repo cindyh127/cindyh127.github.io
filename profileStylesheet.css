@@ -28,12 +28,6 @@ ul{
   	padding-bottom: 0px;
   	padding-left: 0px;
 }
-/*
 li{
-	width: 71.28px;
-	height: 64px;
-	float: none !important;
-	margin-right: 0px !important;
-	margin-left: 0px !important;
-
-}*/
+	padding-left: 25px !important;
+}
