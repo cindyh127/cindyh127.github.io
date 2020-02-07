@@ -26,3 +26,6 @@ function signOut() {
       console.log('User signed out.');
     });
  }
+function test(){
+    console.log("test worked");
+}
