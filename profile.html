@@ -20,7 +20,31 @@
   <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
   <meta name="google-signin-client_id" content="376838445154-62o192o8vb0smhsrq1mn9qf8j76ve5ca.apps.googleusercontent.com">
   <meta name="google-signin-scope" content="profile email">
-            
+  
+
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBcVVdPGLwEPBSNAhGLTLEx_pWXzq4ccEk",
+      authDomain: "circle-6d0a3.firebaseapp.com",
+      databaseURL: "https://circle-6d0a3.firebaseio.com",
+      projectId: "circle-6d0a3",
+      storageBucket: "circle-6d0a3.appspot.com",
+      messagingSenderId: "327413279613",
+      appId: "1:327413279613:web:8ecba9a32e022106707a14",
+      measurementId: "G-N6M24KH95H"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>              
     
 </head>
 

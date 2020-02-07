@@ -29,3 +29,15 @@ function signOut() {
 function test(){
     console.log("test worked");
 }
+
+function signInWithGoogle(){
+    var googleAuthProvider =  new firebase.auth.GoogleAuthProvider;
+    firebase.auth().signInWithPopup(googleAuthProvider);
+            .then( function(data){
+                console.log(data);
+            })
+            .catch( function(error){
+                console.log(error);
+            })
+
+}
