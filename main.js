@@ -1,3 +1,17 @@
+ var firebaseConfig = {
+      apiKey: "AIzaSyBcVVdPGLwEPBSNAhGLTLEx_pWXzq4ccEk",
+      authDomain: "circle-6d0a3.firebaseapp.com",
+      databaseURL: "https://circle-6d0a3.firebaseio.com",
+      projectId: "circle-6d0a3",
+      storageBucket: "circle-6d0a3.appspot.com",
+      messagingSenderId: "327413279613",
+      appId: "1:327413279613:web:8ecba9a32e022106707a14",
+      measurementId: "G-N6M24KH95H"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
  function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         console.log("this ran");
@@ -31,8 +45,8 @@ function test(){
 }
 
 function signInWithGoogle(){
-    var googleAuthProvider =  new firebase.auth.GoogleAuthProvider;
-    firebase.auth().signInWithPopup(googleAuthProvider);
+    var googleAuthProvider =  new firebase.auth.GoogleAuthProvider
+    firebase.auth().signInWithPopup(googleAuthProvider)
             .then( function(data){
                 console.log(data);
             })
