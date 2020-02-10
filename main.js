@@ -15,7 +15,7 @@
 var googleProfilePic;
 var googleDisplayName;
 var googleEmail;
-
+var signedIn = false;
 
 function signInWithGoogle(){
     var googleAuthProvider =  new firebase.auth.GoogleAuthProvider
@@ -27,7 +27,7 @@ function signInWithGoogle(){
                 googleProfilePic = data.user.photoURL;
                 googleDisplayName = data.user.displayName;
                 googleEmail = data.user.email;
-
+                signedIn = true;
                 //window.location.href = "profile.html";
 
                 // //update html 
@@ -42,9 +42,14 @@ function signInWithGoogle(){
             .catch( function(error){
                 console.log(error);
             })
-      window.location.href = "profile.html";
-}
 
+}
+ if(signedIn == true){
+  window.location.href = "profile.html";
+  document.getElementById('profile-pic').src = googleProfilePic;
+  document.getElementById('display-name').innerHTML = googleDisplayName;
+  document.getElementById('email').innerHTML = googleEmail;
+ }
 
 // function userInfo(){
 //   //update html 
