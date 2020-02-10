@@ -22,9 +22,19 @@ function signInWithGoogle(){
     firebase.auth().signInWithPopup(googleAuthProvider)
             .then( function(data){
                 console.log(data);
+
+                //set info vars equal to user info
                 googleProfilePic = data.user.photoURL;
                 googleDisplayName = data.user.displayName;
                 googleEmail = data.user.email;
+
+                //update html 
+                document.getElementById('profile-pic').src = googleProfilePic;
+                document.getElementById('display-name').innerHTML = googleDisplayName;
+                document.getElementById('email').innerHTML = googleEmail;
+
+
+                window.location.href = "profile.html";
 
             })
             .catch( function(error){
