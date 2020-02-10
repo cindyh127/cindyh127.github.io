@@ -28,13 +28,15 @@ function signInWithGoogle(){
                 googleDisplayName = data.user.displayName;
                 googleEmail = data.user.email;
 
+                window.location.href = "profile.html";
+
                 //update html 
                 document.getElementById('profile-pic').src = googleProfilePic;
                 document.getElementById('display-name').innerHTML = googleDisplayName;
                 document.getElementById('email').innerHTML = googleEmail;
 
 
-                window.location.href = "profile.html";
+               // window.location.href = "profile.html";
 
             })
             .catch( function(error){
