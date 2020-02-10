@@ -42,6 +42,7 @@ function signInWithGoogle(){
             .catch( function(error){
                 console.log(error);
             })
+      window.location.href = "profile.html";
 }
 
 
