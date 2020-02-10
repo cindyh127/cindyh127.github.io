@@ -28,7 +28,7 @@ function signInWithGoogle(){
                 googleDisplayName = data.user.displayName;
                 googleEmail = data.user.email;
 
-                window.location.href = "profile.html";
+                //window.location.href = "profile.html";
 
                 // //update html 
                 // document.getElementById('profile-pic').src = googleProfilePic;
