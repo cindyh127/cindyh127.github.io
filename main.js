@@ -45,10 +45,10 @@ function signInWithGoogle(){
 }
 
 
-function userInfo(){
-  //update html 
-  document.getElementById('profile-pic').src = googleProfilePic;
-  document.getElementById('display-name').innerHTML = googleDisplayName;
-  document.getElementById('email').innerHTML = googleEmail;
+// function userInfo(){
+//   //update html 
+//   document.getElementById('profile-pic').src = googleProfilePic;
+//   document.getElementById('display-name').innerHTML = googleDisplayName;
+//   document.getElementById('email').innerHTML = googleEmail;
 
-}
+// }
