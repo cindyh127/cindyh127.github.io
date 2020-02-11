@@ -53,8 +53,11 @@
     <main>
       <h3 align="center">Login with your Google Account</h3>
       <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
-      <button onClick="signInWithGoogle()">
+      <button id = "sign-in-button" onClick="signInWithGoogle()">
           Sign in with Google
+      </button>
+      <button style = "display: none;" id = "continue-button" onClick="updateInfo()">
+          continue
       </button>
 
     </main>

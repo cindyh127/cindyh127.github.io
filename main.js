@@ -15,7 +15,6 @@
 var googleProfilePic;
 var googleDisplayName;
 var googleEmail;
-var signedIn = false;
 
 function signInWithGoogle(){
     var googleAuthProvider =  new firebase.auth.GoogleAuthProvider
@@ -27,18 +26,9 @@ function signInWithGoogle(){
                 googleProfilePic = data.user.photoURL;
                 googleDisplayName = data.user.displayName;
                 googleEmail = data.user.email;
-                signedIn = true;
+                document.getElementById("sign-in-button").style.display = "none";
+                document.getElementById("continue-button").style.display = "block";
                 //window.location.href = "profile.html";
-
-                // //update html 
-                // document.getElementById('profile-pic').src = googleProfilePic;
-                // document.getElementById('display-name').innerHTML = googleDisplayName;
-                // document.getElementById('email').innerHTML = googleEmail;
-
-
-               // window.location.href = "profile.html";
-               updateInfo();
-
 
             })
             .catch( function(error){
@@ -47,12 +37,11 @@ function signInWithGoogle(){
 
 }
 function updateInfo(){
-   if(signedIn == true){
-    window.location.href = "profile.html";
-    document.getElementById('profile-pic').src = googleProfilePic;
-    document.getElementById('display-name').innerHTML = googleDisplayName;
-    document.getElementById('email').innerHTML = googleEmail;
-   }
+  window.location.href = "profile.html";
+  document.getElementById('profile-pic').src = googleProfilePic;
+  document.getElementById('display-name').innerHTML = googleDisplayName;
+  document.getElementById('email').innerHTML = googleEmail;
+   
 }
 // function userInfo(){
 //   //update html 
