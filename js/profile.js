@@ -13,6 +13,7 @@
     firebase.analytics();
 
 function checkIfLoggedIn() {
+    var googleAuthProvider =  new firebase.auth.GoogleAuthProvider
     firebase.auth().onAuthStateChanged(function(user){
         if (user) {
             //logged in code
