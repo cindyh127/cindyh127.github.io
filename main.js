@@ -37,6 +37,8 @@ function signInWithGoogle(){
 
 
                // window.location.href = "profile.html";
+               updateInfo();
+
 
             })
             .catch( function(error){
@@ -44,13 +46,14 @@ function signInWithGoogle(){
             })
 
 }
- if(signedIn == true){
-  window.location.href = "profile.html";
-  document.getElementById('profile-pic').src = googleProfilePic;
-  document.getElementById('display-name').innerHTML = googleDisplayName;
-  document.getElementById('email').innerHTML = googleEmail;
- }
-
+function updateInfo(){
+   if(signedIn == true){
+    window.location.href = "profile.html";
+    document.getElementById('profile-pic').src = googleProfilePic;
+    document.getElementById('display-name').innerHTML = googleDisplayName;
+    document.getElementById('email').innerHTML = googleEmail;
+   }
+}
 // function userInfo(){
 //   //update html 
 //   document.getElementById('profile-pic').src = googleProfilePic;
