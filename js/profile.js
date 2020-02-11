@@ -16,16 +16,16 @@ function checkIfLoggedIn() {
     firebase.auth().onAuthStateChanged(function(user){
         if (user) {
             //logged in code
-            console.log("user signed in")
-            var photoURL = user.photoURL
+            console.log("user signed in");
+            var photoURL = user.photoURL;
             document.getElementById('profile-pic')
-                .setAttribute('src', photoURL)
-            var displayName = user.displayName
+                .setAttribute('src', photoURL);
+            var displayName = user.displayName;
             document.getElementById('display-name').innerHTML = displayName;
-            var email = user.email
+            var email = user.email;
             document.getElementById('email').innerHTML = email;  
         }
-    }
+    })
 }
 window.onload = function() {
     checkIfLoggedIn()
