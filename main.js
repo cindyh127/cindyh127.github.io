@@ -37,10 +37,11 @@ function signInWithGoogle(){
 
 }
 function updateInfo(){
-  window.location.href = "profile.html";
   document.getElementById('profile-pic').src = googleProfilePic;
   document.getElementById('display-name').innerHTML = googleDisplayName;
   document.getElementById('email').innerHTML = googleEmail;
+  window.location.href = "profile.html";
+  
    
 }
 // function userInfo(){
