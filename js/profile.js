@@ -12,22 +12,6 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-function checkIfLoggedIn() {
-    var googleAuthProvider =  new firebase.auth.GoogleAuthProvider
-    firebase.auth().onAuthStateChanged(function(user){
-        if (user) {
-            //logged in code
-            console.log("user signed in");
-            var photoURL = user.photoURL;
-            document.getElementById('profile-pic')
-                .setAttribute('src', photoURL);
-            var displayName = user.displayName;
-            document.getElementById('display-name').innerHTML = displayName;
-            var email = user.email;
-            document.getElementById('email').innerHTML = email;  
-        }
-    })
-}
 window.onload = function() {
     checkIfLoggedIn()
 }
@@ -42,10 +26,51 @@ function signInWithGoogle(){
             })
 
 }
-function updateInfo(){
-  document.getElementById('profile-pic').src = googleProfilePic;
-  document.getElementById('display-name').innerHTML = googleDisplayName;
-  document.getElementById('email').innerHTML = googleEmail;  
+// function updateInfo(){
+//   document.getElementById('profile-pic').src = googleProfilePic;
+//   document.getElementById('display-name').innerHTML = googleDisplayName;
+//   document.getElementById('email').innerHTML = googleEmail;  
    
+// }
+
+function checkIfLoggedIn() {
+    firebase.auth().onAuthStateChanged(function(user){
+        if (user) {
+            console.log("user signed in");
+            var photoURL = user.photoURL;
+            document.getElementById('profile-pic')
+                .setAttribute('src', photoURL);
+            var displayName = user.displayName;
+            document.getElementById('display-name').innerHTML = displayName;
+            var email = user.email;
+            document.getElementById('email').innerHTML = email;  
+
+        }
+        else {
+            //signed out code 
+            //console.log("user not signed in")
+            // document.getElementById('google-signin')
+            //     .setAttribute('style', 'display: inline-block; visibility: visible')
+            // document.getElementById('signout')
+            //     .setAttribute('style', 'display: none; visibility: hidden')
+
+        }
+    })
+
 }
 
+function signInWithGoogle() {
+    var googleAuthProvider = new firebase.auth.GoogleAuthProvider
+
+    firebase.auth().signInWithPopup(googleAuthProvider)
+        .then(function(data) {
+            console.log(data)
+            var idToken = data.credential.idToken
+            
+
+            checkIfLoggedIn()
+        })
+        .catch(function(error) {
+            console.log(error)
+        })
+}
