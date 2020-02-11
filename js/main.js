@@ -12,29 +12,24 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-function checkIfLoggedIn() {
-    firebase.auth().onAuthStateChanged(function(user){
-        if (user) {
-            //logged in code
-            console.log("user signed in")
-            var photoURL = user.photoURL
-            document.getElementById('profile-pic')
-                .setAttribute('src', photoURL)
-            var displayName = user.displayName
-            document.getElementById('display-name').innerHTML = displayName;
-            var email = user.email
-            document.getElementById('email').innerHTML = email;  
-        }
-    }
-}
-window.onload = function() {
-    checkIfLoggedIn()
-}
+var googleProfilePic;
+var googleDisplayName;
+var googleEmail;
+
 function signInWithGoogle(){
     var googleAuthProvider =  new firebase.auth.GoogleAuthProvider
     firebase.auth().signInWithPopup(googleAuthProvider)
             .then( function(data){
                 console.log(data);
+
+                //set info vars equal to user info
+                googleProfilePic = data.user.photoURL;
+                googleDisplayName = data.user.displayName;
+                googleEmail = data.user.email;
+                document.getElementById("sign-in-button").style.display = "none";
+                document.getElementById("continue-button").style.display = "block";
+                //window.location.href = "profile.html";
+
             })
             .catch( function(error){
                 console.log(error);
@@ -47,4 +42,10 @@ function updateInfo(){
   document.getElementById('email').innerHTML = googleEmail;  
    
 }
+// function userInfo(){
+//   //update html 
+//   document.getElementById('profile-pic').src = googleProfilePic;
+//   document.getElementById('display-name').innerHTML = googleDisplayName;
+//   document.getElementById('email').innerHTML = googleEmail;
 
+// }

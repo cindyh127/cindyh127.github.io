@@ -12,9 +12,9 @@
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-var googleProfilePic;
-var googleDisplayName;
-var googleEmail;
+// var googleProfilePic;
+// var googleDisplayName;
+// var googleEmail;
 
 function signInWithGoogle(){
     var googleAuthProvider =  new firebase.auth.GoogleAuthProvider
@@ -22,12 +22,12 @@ function signInWithGoogle(){
             .then( function(data){
                 console.log(data);
 
-                //set info vars equal to user info
-                googleProfilePic = data.user.photoURL;
-                googleDisplayName = data.user.displayName;
-                googleEmail = data.user.email;
-                document.getElementById("sign-in-button").style.display = "none";
-                document.getElementById("continue-button").style.display = "block";
+                // //set info vars equal to user info
+                // googleProfilePic = data.user.photoURL;
+                // googleDisplayName = data.user.displayName;
+                // googleEmail = data.user.email;
+                // document.getElementById("sign-in-button").style.display = "none";
+                // document.getElementById("continue-button").style.display = "block";
                 //window.location.href = "profile.html";
 
             })
