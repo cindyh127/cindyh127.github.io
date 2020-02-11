@@ -26,8 +26,8 @@ function signInWithGoogle(){
                 // googleProfilePic = data.user.photoURL;
                 // googleDisplayName = data.user.displayName;
                 // googleEmail = data.user.email;
-                // document.getElementById("sign-in-button").style.display = "none";
-                // document.getElementById("continue-button").style.display = "block";
+                document.getElementById("sign-in-button").style.display = "none";
+                document.getElementById("continue").style.display = "block";
                 //window.location.href = "profile.html";
 
             })
