@@ -37,12 +37,9 @@ function signInWithGoogle(){
 
 }
 function updateInfo(){
-  window.history.pushState(“object or string”, “profile”, “/profile.html”);
   document.getElementById('profile-pic').src = googleProfilePic;
   document.getElementById('display-name').innerHTML = googleDisplayName;
-  document.getElementById('email').innerHTML = googleEmail;
- 
-  
+  document.getElementById('email').innerHTML = googleEmail;  
    
 }
 // function userInfo(){
