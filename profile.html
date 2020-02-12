@@ -15,11 +15,7 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
-  <meta name="google-signin-client_id" content="376838445154-62o192o8vb0smhsrq1mn9qf8j76ve5ca.apps.googleusercontent.com">
-  <meta name="google-signin-scope" content="profile email">
   
-
    <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
 
@@ -29,9 +25,8 @@
     
 </head>
 
-<!-- <body onload="userInfo()"> -->
-<body onload="updateInfo()">
-     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+<body>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
@@ -48,10 +43,10 @@
       <br>
       <h6 align="center">Profile Page</h6>
       <br>
-      <img id = "profile-pic" src="images/default-profile.jpg" alt="Avatar">
+      <img id = "profile-pic" src="" alt="Avatar">
       <br>
-      <p id = "display-name">Display Name</p>
-      <p id = "email">email</p>
+      <p id = "display-name"></p>
+      <p id = "email"></p>
       <a onclick="signOut();" class="waves-effect waves-light btn">sign out</a>
       <button  onclick  = "test();">test</button>
     </main>

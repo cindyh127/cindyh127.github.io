@@ -8,44 +8,24 @@
       appId: "1:327413279613:web:8ecba9a32e022106707a14",
       measurementId: "G-N6M24KH95H"
     };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
 
-// var googleProfilePic;
-// var googleDisplayName;
-// var googleEmail;
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 function signInWithGoogle(){
     var googleAuthProvider =  new firebase.auth.GoogleAuthProvider
     firebase.auth().signInWithPopup(googleAuthProvider)
             .then( function(data){
                 console.log(data);
-
-                // //set info vars equal to user info
-                // googleProfilePic = data.user.photoURL;
-                // googleDisplayName = data.user.displayName;
-                // googleEmail = data.user.email;
+                //switch buttons
                 document.getElementById("sign-in-button").style.display = "none";
                 document.getElementById("continue").style.display = "block";
-                //window.location.href = "profile.html";
-
             })
             .catch( function(error){
                 console.log(error);
             })
 
 }
-function updateInfo(){
-  document.getElementById('profile-pic').src = googleProfilePic;
-  document.getElementById('display-name').innerHTML = googleDisplayName;
-  document.getElementById('email').innerHTML = googleEmail;  
-   
-}
-// function userInfo(){
-//   //update html 
-//   document.getElementById('profile-pic').src = googleProfilePic;
-//   document.getElementById('display-name').innerHTML = googleDisplayName;
-//   document.getElementById('email').innerHTML = googleEmail;
 
-// }
+
