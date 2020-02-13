@@ -1,8 +1,31 @@
 var map, infoWindow;
+var userLatitude;
+var userLongitude;
+var userEmail;
+
+
+var firebaseConfig = {
+      apiKey: "AIzaSyBcVVdPGLwEPBSNAhGLTLEx_pWXzq4ccEk",
+      authDomain: "circle-6d0a3.firebaseapp.com",
+      databaseURL: "https://circle-6d0a3.firebaseio.com",
+      projectId: "circle-6d0a3",
+      storageBucket: "circle-6d0a3.appspot.com",
+      messagingSenderId: "327413279613",
+      appId: "1:327413279613:web:8ecba9a32e022106707a14",
+      measurementId: "G-N6M24KH95H"
+};
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+window.onload = function() {
+    checkIfLoggedIn();
+}
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
-    zoom: 8
+    zoom: 15
     });
 
     infoWindow = new google.maps.InfoWindow;
@@ -14,6 +37,14 @@ function initMap() {
     			lat : position.coords.latitude,
     			lng : position.coords.longitude
     		};
+            
+            //set variables for lat and lng to store in firebase
+            userLatitude = position.coords.latitude
+            userLongitude = position.coords.longitude
+
+            //store data to firebase --> later will do this on a seperate page or at least a button
+            writeUserData(userEmail, userLatitude, userLongitude)
+
 
     		infoWindow.setPosition(pos);
     		infoWindow.setContent('You');
@@ -34,4 +65,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                            'Error: The Geolocation service failed.' :
                            'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
+}
+
+
+function checkIfLoggedIn() {
+    firebase.auth().onAuthStateChanged(function(user){
+        if (user) {
+            email = user.email;  
+        }
+    })
+}
+
+function writeUserData(email, latitude, longitude) {
+  firebase.database().ref('users/').set({
+    email: userEmail,
+    location: new firebase.firestore.GeoPoint(latitude, longitude)
+  });
 }

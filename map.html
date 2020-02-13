@@ -20,6 +20,9 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
        https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
 
 
   <meta name="viewport" content="initial-scale=1.0">
@@ -40,7 +43,7 @@
 </head>
 
 <body>
-     
+    
     <div id="map"></div>
     <footer class="page-footer" style="position:fixed;bottom:0;left:0;width:100%;">
       <div class="naxbar-fixed">
@@ -55,8 +58,15 @@
         </nav>
       </div>
     </footer>
-  <script src="js/map.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDBwjQbqE1Jilw48mKduwPRuKIgLuvFgs&callback=initMap"
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+     <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+
+    <script src="js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDBwjQbqE1Jilw48mKduwPRuKIgLuvFgs&callback=initMap"
       async defer></script>
 
 </body>
