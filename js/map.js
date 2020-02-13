@@ -77,7 +77,7 @@ function checkIfLoggedIn() {
 }
 
 function writeUserData(email, latitude, longitude) {
-  firebase.database().ref('users/').set({
+  firebase.database().ref().set({
     email: userEmail,
     location: new firebase.firestore.GeoPoint(latitude, longitude)
   });
