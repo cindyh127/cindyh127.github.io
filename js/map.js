@@ -44,7 +44,9 @@ function initMap() {
 
             //store data to firebase --> later will do this on a seperate page or at least a button
             checkIfLoggedIn();
-            writeUserData(userEmail, userLatitude, userLongitude)
+            if(userEmail!=null){
+              writeUserData(userEmail, userLatitude, userLongitude)
+            }
 
 
     		infoWindow.setPosition(pos);
