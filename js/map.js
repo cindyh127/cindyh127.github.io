@@ -18,9 +18,9 @@ var firebaseConfig = {
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
 
-window.onload = function() {
-    checkIfLoggedIn();
-}
+// window.onload = function() {
+//     checkIfLoggedIn();
+// }
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -43,6 +43,7 @@ function initMap() {
             userLongitude = position.coords.longitude
 
             //store data to firebase --> later will do this on a seperate page or at least a button
+            checkIfLoggedIn();
             writeUserData(userEmail, userLatitude, userLongitude)
 
 
