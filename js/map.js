@@ -1,7 +1,7 @@
 var map, infoWindow;
-var userLatitude;
-var userLongitude;
-var userEmail;
+var userLatitude = null;
+var userLongitude = null;
+var userEmail = null;
 
 
 var firebaseConfig = {
