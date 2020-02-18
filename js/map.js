@@ -46,6 +46,9 @@ function initMap() {
             checkIfLoggedIn();
             if(userEmail!=null){
               writeUserData(userEmail, userLatitude, userLongitude)
+            } 
+            else{
+              console.log("user email is null")
             }
 
 
