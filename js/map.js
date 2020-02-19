@@ -44,12 +44,12 @@ function initMap() {
 
             //store data to firebase --> later will do this on a seperate page or at least a button
             //checkIfLoggedIn();
-            if(userEmail!=null){
-              writeUserData(userEmail, userLatitude, userLongitude)
-            } 
-            else{
-              console.log("user email is null")
-            }
+            // if(userEmail!=null){
+            //   writeUserData(userEmail, userLatitude, userLongitude)
+            // } 
+            // else{
+            //   console.log("user email is null")
+            // }
 
 
     		infoWindow.setPosition(pos);
@@ -75,11 +75,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 function checkIfLoggedIn() {
-
     firebase.auth().onAuthStateChanged(function(user){
         if (user) {
             userEmail = user.email; 
             console.log("email var updated")
+            writeUserData(userEmail, userLatitude, userLongitude)
         }
     })
 }
@@ -89,4 +89,5 @@ function writeUserData(email, latitude, longitude) {
     email: userEmail,
     location: new firebase.firestore.GeoPoint(latitude, longitude)
   });
+  console.log("updated data")
 }
