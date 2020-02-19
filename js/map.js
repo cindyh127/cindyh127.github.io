@@ -77,7 +77,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function checkIfLoggedIn() {
     firebase.auth().onAuthStateChanged(function(user){
         if (user) {
-            userEmail = user.email;  
+            userEmail = user.email; 
+            console.log("email var updated")
         }
     })
 }
