@@ -12,6 +12,11 @@
  main {
      flex: 1 0 auto;
  }
+ a{
+   position: absolute;
+   right: 30%;
+   left: 30%;
+ }
 button{
    border: 2px solid #000000; 
    background-color: white;
@@ -46,4 +51,8 @@ g-signin2{
 
 .g-signin2 > div{
   margin: 0 auto;
+}
+
+a{
+  color: #000000;
 }
