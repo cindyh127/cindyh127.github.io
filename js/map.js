@@ -21,6 +21,7 @@ var firebaseConfig = {
 
 window.onload = function() {
     checkIfLoggedIn();
+    initialFindOtherUsers();
 }
 
 function initMap() {
@@ -83,4 +84,24 @@ function writeUserData(email, latitude, longitude) {
     location: new firebase.firestore.GeoPoint(latitude, longitude)
   });
   console.log("updated data")
+}
+
+function initialFindOtherUsers(){
+   firebase.database().getInstance().getReference().child("Users")
+            .addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        User user = snapshot.getValue(User.class);
+                        System.out.println(user.email);
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
+//   var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
+// starCountRef.on('value', function(snapshot) {
+//   updateStarCount(postElement, snapshot.val());
+// });
 }
