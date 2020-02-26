@@ -104,6 +104,7 @@ function initialFindOtherUsers(){
         // childData will be the actual contents of the child
         var childData = childSnapshot.val();
         console.log(childData);
+        console.log("i tried");
     });
   });
 //   var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
