@@ -2,6 +2,7 @@ var map, infoWindow;
 var userLatitude = null;
 var userLongitude = null;
 var userEmail = null;
+var userUid = null;
 
 
 var firebaseConfig = {
@@ -69,6 +70,7 @@ function checkIfLoggedIn() {
     firebase.auth().onAuthStateChanged(function(user){
         if (user) {
             userEmail = user.email; 
+            userUid = user.uid;
             console.log("email var updated")
             writeUserData(userEmail, userLatitude, userLongitude)
         }
@@ -76,8 +78,8 @@ function checkIfLoggedIn() {
 }
 
 function writeUserData(email, latitude, longitude) {
-  firebase.database().ref().child("Users/"+ `${userEmail}`).set({
-    //email: userEmail,
+  firebase.database().ref().child("Users/"+ ${userUid}).set({
+    email: userEmail,
     location: new firebase.firestore.GeoPoint(latitude, longitude)
   });
   console.log("updated data")
