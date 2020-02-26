@@ -42,15 +42,6 @@ function initMap() {
             userLatitude = position.coords.latitude
             userLongitude = position.coords.longitude
 
-            //store data to firebase --> later will do this on a seperate page or at least a button
-            //checkIfLoggedIn();
-            // if(userEmail!=null){
-            //   writeUserData(userEmail, userLatitude, userLongitude)
-            // } 
-            // else{
-            //   console.log("user email is null")
-            // }
-
 
     		infoWindow.setPosition(pos);
     		infoWindow.setContent('You');
@@ -85,7 +76,7 @@ function checkIfLoggedIn() {
 }
 
 function writeUserData(email, latitude, longitude) {
-  firebase.database().ref().child(`Users/${userEmail}`).set({
+  firebase.database().ref().child("Users/"+ `${userEmail}`).set({
     //email: userEmail,
     location: new firebase.firestore.GeoPoint(latitude, longitude)
   });
