@@ -87,19 +87,25 @@ function writeUserData(email, latitude, longitude) {
 }
 
 function initialFindOtherUsers(){
-   firebase.database().getInstance().getReference().child("Users")
-            .addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        User user = snapshot.getValue(User.class);
-                        System.out.println(user.email);
-                    }
-                }
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                }
-            });
+  // firebase.database().ref('\interests').child("I would like to dine with").on('value', (snapshot) => {
+  //   snapshot.forEach((child) => {
+  //     console.log(child.key, child.val()); 
+  //     this.intVal.push(child.val());
+  //     console.log("intVal",this.intVal);
+  //   });
+  //   }
+  // })
+  var query = firebase.database().ref("users").orderByKey();
+  query.once("value")
+    .then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        // key will be "ada" the first time and "alan" the second time
+        var key = childSnapshot.key;
+        // childData will be the actual contents of the child
+        var childData = childSnapshot.val();
+        console.log(childData);
+    });
+  });
 //   var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
 // starCountRef.on('value', function(snapshot) {
 //   updateStarCount(postElement, snapshot.val());
