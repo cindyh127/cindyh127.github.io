@@ -21,7 +21,7 @@ var firebaseConfig = {
 
 window.onload = function() {
     checkIfLoggedIn();
-    initialFindOtherUsers();
+    //initialFindOtherUsers();
 }
 
 function initMap() {
