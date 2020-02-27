@@ -21,7 +21,7 @@ var firebaseConfig = {
 
 window.onload = function() {
     checkIfLoggedIn();
-    //initialFindOtherUsers();
+    initialFindOtherUsers();
 }
 
 function initMap() {
@@ -95,7 +95,7 @@ function initialFindOtherUsers(){
   //   });
   //   }
   // })
-  var query = firebase.database().ref("users").orderByKey();
+  var query = firebase.database().ref().child(`Users/${userUid}`).orderByKey();
   query.once("value")
     .then(function(snapshot) {
       snapshot.forEach(function(childSnapshot) {
