@@ -95,6 +95,7 @@ function initialFindOtherUsers(){
   //   });
   //   }
   // })
+  console.log("is this even running");
   var query = firebase.database().ref().child(`Users/${userUid}`).orderByKey();
   query.once("value")
     .then(function(snapshot) {
